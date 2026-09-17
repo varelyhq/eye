@@ -23,7 +23,7 @@ export default async function Page() {
                     {data && <HomeGrid cams={data} />}
                 </SectionContent>
             </Section>
-            <Section>
+            <Section id="favorite_cams" containerClassName="scroll-mt-24">
                 <SectionHeader>
                     <SectionTitle>Ulubione kamery</SectionTitle>
                 </SectionHeader>

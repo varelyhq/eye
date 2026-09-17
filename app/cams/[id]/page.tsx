@@ -5,13 +5,11 @@ import { HomeGrid } from "@/components/home-grid"
 import { LiveChat } from "@/components/live-chat"
 import { LiveCount } from "@/components/live-count"
 import { Rating } from "@/components/rating"
-import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { Flex } from "@/components/ui/flex"
 import { Section, SectionContent, SectionHeader, SectionTitle } from "@/components/ui/section"
 import { serverApi } from "@/lib/server-api"
 import { CamType } from "@/types/cam-type"
-import { Heart } from "lucide-react"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -37,7 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <Flex className="xl:flex-row gap-4">
                 <Flex className="flex-2 gap-4">
                     <HlsVideoPlayer src={data.stream_url || ''} />
-                    <Flex className="flex-2 flex-row justify-between items-start gap-2">
+                    <Flex className="flex-2 md:flex-row md:justify-between md:items-start gap-2">
                         <Flex className="gap-1">
                             <CamViewStats views={data.views} camId={data.id} />
                             <h1 className="text-2xl font-semibold">{data.name}</h1>

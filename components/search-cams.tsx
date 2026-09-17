@@ -10,6 +10,7 @@ import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "./ui/i
 import Link from "next/link";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "./ui/empty";
+import { Button } from "./ui/button";
 
 function CamSearchResult({ cam }: { cam: CamType }) {
     return (
@@ -61,12 +62,17 @@ export function SearchCams() {
                 <DialogTrigger
                     nativeButton={false}
                     render={
-                        <InputGroup className="w-fit cursor-pointer">
-                            <InputGroupAddon>
+                        <Flex>
+                            <InputGroup className="hidden sm:flex w-fit cursor-pointer">
+                                <InputGroupAddon>
+                                    <Search />
+                                </InputGroupAddon>
+                                <InputGroupInput disabled autoComplete='off' placeholder="Szukaj kamer..." className="cursor-pointer" />
+                            </InputGroup>
+                            <Button variant='ghost' size='icon' className='sm:hidden'>
                                 <Search />
-                            </InputGroupAddon>
-                            <InputGroupInput disabled autoComplete='off' placeholder="Szukaj kamer..." className="cursor-pointer" />
-                        </InputGroup>
+                            </Button>
+                        </Flex>
                     } />
                 <DialogContent>
                     <DialogHeader>

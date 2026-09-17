@@ -42,7 +42,7 @@ export function FavoriteCams() {
     )
 
     return (
-        <Grid className="grid-cols-5">
+        <Grid className="grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
             {favoriteCams.map(cam => <Cam key={cam.id} cam={cam} showHeart />)}
         </Grid>
     )

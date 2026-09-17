@@ -1,16 +1,20 @@
+import { AllCams } from "@/components/all-cams";
 import { FavoriteCams } from "@/components/favorite-cams";
 import { HomeGrid } from "@/components/home-grid"
-import { Container } from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
+import { Flex } from "@/components/ui/flex";
 import { Section, SectionContent, SectionDescription, SectionHeader, SectionTitle } from "@/components/ui/section";
 import { serverApi } from "@/lib/server-api";
 import { CamType } from "@/types/cam-type";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function Page() {
 
     const { data, error } = await serverApi.get<CamType[]>('/cams/popular', { next: { revalidate: 3600 } })
 
     return (
-        <Container>
+        <Flex>
             <Section>
                 <SectionHeader>
                     <SectionTitle>Popularne kamery</SectionTitle>
@@ -28,11 +32,17 @@ export default async function Page() {
                 </SectionContent>
             </Section>
             <Section>
-                <SectionHeader>
-                    <SectionTitle>Szukaj kamery</SectionTitle>
-                    <SectionDescription>Skorzystaj z poniższych filtrów, aby znaleźć dowolną kamerę.</SectionDescription>
-                </SectionHeader>
+                <Flex className="flex-row justify-between">
+                    <SectionHeader>
+                        <SectionTitle>Szukaj kamery</SectionTitle>
+                        <SectionDescription>Skorzystaj z poniższych filtrów, aby znaleźć dowolną kamerę.</SectionDescription>
+                    </SectionHeader>
+                    <Button variant='secondary' render={<Link href='/cams'>Zobacz więcej <ArrowRight /></Link>} />
+                </Flex>
+                <SectionContent>
+                    <AllCams limit={10} />
+                </SectionContent>
             </Section>
-        </Container>
+        </Flex>
     )
 }

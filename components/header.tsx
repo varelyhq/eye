@@ -6,18 +6,14 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Heart, Search } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
+import { SearchCams } from "./search-cams";
 
 export function Header() {
     return (
         <Flex className="flex-row h-16 bg-background">
             <Container className="my-0! flex-row items-center">
                 <Logo size='sm' />
-                <InputGroup className="w-fit ml-auto">
-                    <InputGroupAddon>
-                        <Search />
-                    </InputGroupAddon>
-                    <InputGroupInput placeholder="Szukaj miejscowości..." />
-                </InputGroup>
+                <SearchCams />
                 <NavigationMenu className=''>
                     <NavigationMenuList>
                         <NavigationMenuItem>

@@ -13,11 +13,12 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
 
 type Props = {
     src: string
-    className?: string
     showControls?: boolean
+    wrapperClassName?: string
+    className?: string
 }
 
-export function HlsVideoPlayer({ src, showControls: showControlsProp = true, className }: Props) {
+export function HlsVideoPlayer({ src, showControls: showControlsProp = true, wrapperClassName, className }: Props) {
 
     const [error, setError] = useState(false)
     const [paused, setPaused] = useState(false)
@@ -188,12 +189,12 @@ export function HlsVideoPlayer({ src, showControls: showControlsProp = true, cla
 
     return (
         <Flex
-            className={cn("relative aspect-video", !showControls && 'cursor-none')}
+            className={cn("relative aspect-video", !showControls && 'cursor-none', wrapperClassName)}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
             {isLoading && (
-                <Skeleton className='absolute aspect-video inset-0 rounded-4xl flex justify-center items-center'>
+                <Skeleton className={'absolute md:aspect-video inset-0 rounded-4xl flex justify-center items-center'}>
                     <Spinner className="size-6" />
                 </Skeleton>
             )}

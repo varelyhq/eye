@@ -32,12 +32,14 @@ export default async function Page() {
                 </SectionContent>
             </Section>
             <Section>
-                <Flex className="flex-row justify-between">
+                <Flex className="md:flex-row justify-between gap-2">
                     <SectionHeader>
                         <SectionTitle>Szukaj kamery</SectionTitle>
                         <SectionDescription>Skorzystaj z poniższych filtrów, aby znaleźć dowolną kamerę.</SectionDescription>
                     </SectionHeader>
-                    <Button variant='secondary' render={<Link href='/cams'>Zobacz więcej <ArrowRight /></Link>} nativeButton={false} />
+                    <Flex className="flex-row justify-end">
+                        <Button variant='secondary' render={<Link href='/cams'>Zobacz więcej <ArrowRight /></Link>} nativeButton={false} />
+                    </Flex>
                 </Flex>
                 <SectionContent>
                     <AllCams limit={10} />

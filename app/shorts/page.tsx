@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <Flex className="flex-1">
-            <Container className="flex-1 my-0! mx-auto">
+        <Flex className="not-md:h-[calc(100vh-4rem)] md:flex-1 overflow-hidden">
+            <Container className="flex-1 my-0! mx-auto px-0 md:px-4">
                 <CamShorts />
             </Container>
         </Flex>

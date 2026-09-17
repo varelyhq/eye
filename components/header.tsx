@@ -25,7 +25,7 @@ export function Header() {
                         </NavigationMenuItem>
                         <Separator orientation='vertical' className='mx-2' />
                         <NavigationMenuItem>
-                            <NavigationMenuLink render={<Link href="/shorts">Ulubione <Heart className="text-rose-500" /></Link>} />
+                            <NavigationMenuLink render={<Link href="/#favorite_cams">Ulubione <Heart className="text-rose-500" /></Link>} />
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>

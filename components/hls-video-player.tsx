@@ -14,9 +14,10 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
 type Props = {
     src: string
     className?: string
+    showControls?: boolean
 }
 
-export function HlsVideoPlayer({ src, className }: Props) {
+export function HlsVideoPlayer({ src, showControls: showControlsProp = true, className }: Props) {
 
     const [error, setError] = useState(false)
     const [paused, setPaused] = useState(false)
@@ -209,7 +210,7 @@ export function HlsVideoPlayer({ src, className }: Props) {
                     <Button
                         className={cn(
                             'absolute left-2 bottom-2 transition-opacity duration-300',
-                            showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            (showControls && showControlsProp) ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         )}
                         variant='secondary'
                         size='icon-lg'
@@ -220,7 +221,7 @@ export function HlsVideoPlayer({ src, className }: Props) {
                     <Button
                         className={cn(
                             'absolute right-2 bottom-2 transition-opacity duration-300',
-                            showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            (showControls && showControlsProp) ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         )}
                         variant='secondary'
                         size='icon-lg'

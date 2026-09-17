@@ -13,7 +13,7 @@ type SocketStoreType = {
 }
 
 export const useSocketStore = create<SocketStoreType>()((set, get) => ({
-    socket: io(process.env.NEXT_PUBLIC_DEV_SOCKETIO_SERVER, { autoConnect: false, withCredentials: true }),
+    socket: io(process.env.NEXT_PUBLIC_API_URL, { autoConnect: false, withCredentials: true }),
     loading: true,
     valid_token: false,
     is_connected: false,

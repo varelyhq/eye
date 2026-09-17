@@ -37,7 +37,7 @@ export default async function Page() {
                         <SectionTitle>Szukaj kamery</SectionTitle>
                         <SectionDescription>Skorzystaj z poniższych filtrów, aby znaleźć dowolną kamerę.</SectionDescription>
                     </SectionHeader>
-                    <Button variant='secondary' render={<Link href='/cams'>Zobacz więcej <ArrowRight /></Link>} />
+                    <Button variant='secondary' render={<Link href='/cams'>Zobacz więcej <ArrowRight /></Link>} nativeButton={false} />
                 </Flex>
                 <SectionContent>
                     <AllCams limit={10} />

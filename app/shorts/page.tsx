@@ -4,6 +4,7 @@ import { Flex } from "@/components/ui/flex";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+    title: 'Cam Shorts | Varely Cams',
     referrer: "no-referrer"
 }
 

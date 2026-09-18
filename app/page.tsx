@@ -7,7 +7,12 @@ import { Section, SectionContent, SectionDescription, SectionHeader, SectionTitl
 import { serverApi } from "@/lib/server-api";
 import { CamType } from "@/types/cam-type";
 import { ArrowRight } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: 'Kamery internetowe | Varely Cams'
+}
 
 export default async function Page() {
 

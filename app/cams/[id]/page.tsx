@@ -12,8 +12,20 @@ import { serverApi } from "@/lib/server-api"
 import { CamType } from "@/types/cam-type"
 import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    referrer: "no-referrer"
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id: slug } = await params
+    const { data, error } = await serverApi.get<CamType>(`/cams/slug/${slug}`)
+
+    if (error) return {
+        title: 'Kamera nie została znaleziona | Varely Cams',
+        referrer: "no-referrer"
+    }
+
+    return {
+        title: data.name + ' | Varely Cams',
+        description: data?.title,
+        referrer: "no-referrer"
+    };
 }
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
